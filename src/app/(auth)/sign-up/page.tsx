@@ -1,7 +1,8 @@
 
 "use client";
 
-import { signUp } from "@/lib/auth-client";
+
+import { signIn, signUp } from "@/lib/auth-client";
 import {Eye, EyeSlash} from "@gravity-ui/icons";
 import {
   Button,
@@ -13,6 +14,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+
 import { useState } from "react";
 
 const SignUpPage = () => {
@@ -39,6 +41,19 @@ const SignUpPage = () => {
 
     console.log(resData, error);
   };
+
+
+  const HandleGoogleSignUp = async () => {
+
+    const resData = await signIn.social({
+      provider : "google"
+    })
+
+    console.log(resData)
+    }
+
+
+
 
   return (
     <div>
@@ -150,6 +165,9 @@ const SignUpPage = () => {
           </Button>
         </div>
       </Form>
+
+      <p>or</p>
+      <Button onClick={HandleGoogleSignUp}>Sign up with google</Button>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import {Check, Eye, EyeSlash} from "@gravity-ui/icons";
 import { useState } from "react";
 
 
+
 const SignInPage = () => {
 
 
@@ -28,6 +29,17 @@ const SignInPage = () => {
     })
 
     console.log(resData,error)
+}
+
+
+
+const HandleGoogleSignIn = async () => {
+
+  const resData = await signIn.social({
+    provider : "google"
+  })
+
+  console.log("after login resData" ,resData)
 }
 
     return (
@@ -133,6 +145,10 @@ const SignInPage = () => {
         </Button>
       </div>
     </Form>
+
+
+    <p>or</p>
+    <Button onClick={HandleGoogleSignIn}>Sign in with Google</Button>
             
         </div>
     );
