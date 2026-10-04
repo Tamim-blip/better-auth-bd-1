@@ -32,14 +32,17 @@ const SignUpPage = () => {
     const data: Record<string, FormDataEntryValue> =
       Object.fromEntries(formData.entries());
 
-    const { data: resData, error } = await signUp.email({
+    const {data: resData, error} = await signUp.email({
       name: data.name as string,
       email: data.email as string,
       password: data.password as string,
       callbackURL : '/'
     });
 
-    console.log(resData, error);
+    console.log(resData,error)
+
+    
+    
   };
 
 
@@ -50,6 +53,15 @@ const SignUpPage = () => {
     })
 
     console.log(resData)
+    }
+
+
+    const HandleGitHubSignIn = async () => {
+
+      const resData = await signIn.social({
+        provider : "github"
+      })
+      console.log(resData)
     }
 
 
@@ -168,6 +180,7 @@ const SignUpPage = () => {
 
       <p>or</p>
       <Button onClick={HandleGoogleSignUp}>Sign up with google</Button>
+      <Button onClick={HandleGitHubSignIn}>Sign up with GitHub</Button>
     </div>
   );
 };

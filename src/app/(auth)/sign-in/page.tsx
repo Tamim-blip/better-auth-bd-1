@@ -4,6 +4,7 @@ import { signIn } from "@/lib/auth-client";
 import {Button, Description, FieldError, Form, Input, InputGroup, Label, TextField} from "@heroui/react";
 import {Check, Eye, EyeSlash} from "@gravity-ui/icons";
 import { useState } from "react";
+import Link from "next/link";
 
 
 
@@ -145,6 +146,8 @@ const HandleGoogleSignIn = async () => {
         </Button>
       </div>
     </Form>
+
+    <p>Forgot Password ? <Link className="text-blue-700 underline" href= '/forgot-password'>Click here</Link></p>
 
 
     <p>or</p>

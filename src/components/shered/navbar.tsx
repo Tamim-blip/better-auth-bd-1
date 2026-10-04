@@ -43,6 +43,21 @@ export default function NavBar() {
 
   </>
 
+  const Links = <>
+
+           <li>
+            <Link href="#">About</Link>
+          </li>
+          <li>
+            <Link href="/dashboard" className="font-medium text-accent" aria-current="page">
+              Dashboard
+            </Link>
+          </li>
+        {session?.user && <li>
+          <Link href="/profile">Profile</Link>
+        </li>}
+  </>
+
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
       <header className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
@@ -79,21 +94,12 @@ export default function NavBar() {
           </button>
           <div className="flex items-center gap-3">
             {/* <Logo /> */}
-            <p className="font-bold">ACME</p>
+            <Link href="/" className="font-bold">ACME</Link>
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">
-          <li>
-            <Link href="#">Features</Link>
-          </li>
-          <li>
-            <Link href="#" className="font-medium text-accent" aria-current="page">
-              Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link href="#">Pricing</Link>
-          </li>
+         {/*  */}
+         {Links}
         </ul>
         <div className="hidden items-center gap-4 md:flex">
           {NavLink}
@@ -102,21 +108,7 @@ export default function NavBar() {
       {isMenuOpen && (
         <div className="border-t border-separator md:hidden">
           <ul className="flex flex-col gap-2 p-4">
-            <li>
-              <Link href="#" className="block py-2">
-                Features
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="block py-2 font-medium text-accent">
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="block py-2">
-                Pricing
-              </Link>
-            </li>
+           {Links}
             <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
               {/*  */}
 
